@@ -1,7 +1,7 @@
 import React from "react";
 
 const WorkExperience = (props) => {
-    const {workList} = props;
+    
 
     const handleTitleChange = (e) => {
         props.setState ({

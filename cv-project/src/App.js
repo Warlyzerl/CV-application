@@ -37,8 +37,9 @@ class App extends Component {
         workTo: "",
         description: ""
       },
-      
+
       previewMode: false
+      
     }
   }
 
@@ -52,6 +53,69 @@ class App extends Component {
     if (this.state.previewMode) {
       this.setState({previewMode: false});
     }
+  }
+
+  handleNameChange = (value) => {
+    this.setState({
+      personalInfo: {
+        ...this.state.personalInfo,
+        firstName : value}
+    })
+    console.log(this.state.personalInfo);
+  }
+
+  handleLastNameChange = (value) => {
+    this.setState({
+      personalInfo: {
+      ...this.state.personalInfo,
+      lastName : value}
+    })
+    console.log(this.state.personalInfo);
+  }
+
+  handleAddress1Change = (value) => {
+    this.setState({
+      personalInfo: {
+      ...this.state.personalInfo,
+      address1 : value}
+    })
+    console.log(this.state.personalInfo);
+  }
+
+  handleAddress2Change = (value) => {
+    this.setState({
+      personalInfo: {
+      ...this.state.personalInfo,
+      address2 : value}
+    })
+    console.log(this.state.personalInfo);
+  }
+
+  handlePhoneChange = (value) => {
+    this.setState({
+      personalInfo: {
+      ...this.state.personalInfo,
+      phone : value}
+    })
+    console.log(this.state.personalInfo);
+  }
+
+  handleEmailChange = (value) => {
+    this.setState({
+      personalInfo: {
+      ...this.state.personalInfo,
+      email : value}
+    })
+    console.log(this.state.personalInfo);
+  }
+
+  handleLinkChange = (value) => {
+    this.setState({
+      personalInfo: {
+      ...this.state.personalInfo,
+      link : value}
+    })
+    console.log(this.state.personalInfo);
   }
 
   render() {
@@ -75,9 +139,19 @@ class App extends Component {
         </div>
       ) : (
         <div>
-          <Personal personalInfo={this.state}></Personal>
+          <Personal personalInfo={this.state.personalInfo} 
+                    onNameChange={this.handleNameChange} 
+                    onLastNameChange={this.handleLastNameChange}
+                    onAddress1Change={this.handleAddress1Change}
+                    onAddress2Change={this.handleAddress2Change}
+                    onPhoneChange={this.handlePhoneChange}
+                    onEmailChange={this.handleEmailChange}
+                    onLinkChange={this.handleLinkChange}
+                    togglePreview={this.togglePreview}
+                    ></Personal>
           <Education education={this.state.education}></Education>
           <WorkExperience workList={this.state.work}></WorkExperience>
+          
         </div>
       )}
         

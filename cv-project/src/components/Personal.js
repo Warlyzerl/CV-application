@@ -1,49 +1,37 @@
 import React from "react";
 
 const Personal = (props) => {
-    const { stateTest } = props;
+
+    const togglePreview = (e) => {
+        props.togglePreview();
+    }
 
     const handleNameChange = (e) => {
-        stateTest.setState({previewMode: true});
-        this.setState(stateTest);
-            // Using this to test if the state in App.js is actually changing
-        
+        props.onNameChange(e.target.value);
     }
 
     const handleLastNameChange = (e) => {
-        props.setState ({
-            lastName: e.target.value
-        })
+        props.onLastNameChange(e.target.value);
     }
 
     const handleAddress1Change = (e) => {
-        props.setState ({
-            address1: e.target.value
-        })
+        props.onAddress1Change(e.target.value);
     }
 
     const handleAddress2Change = (e) => {
-        props.setState ({
-            address2: e.target.value
-        })
+        props.onAddress2Change(e.target.value);
     }
 
     const handlePhoneChange = (e) => {
-        props.setState ({
-            phone: e.target.value
-        })
+        props.onPhoneChange(e.target.value);
     }
 
     const handleEmailChange = (e) => {
-        props.setState ({
-            email: e.target.value
-        })
+        props.onEmailChange(e.target.value);
     }
 
     const handleLinkedInChange = (e) => {
-        props.setState ({
-            link: e.target.value
-        })
+        props.onLinkChange(e.target.value);
     } 
 
     return (
