@@ -26,8 +26,8 @@ class App extends Component {
         school: "",
         degree: "",
         major: "",
-        from: "d",
-        to: ""
+        schoolFrom: "",
+        schoolTo: ""
       },
 
       work: {
@@ -42,6 +42,18 @@ class App extends Component {
     }
   }
 
+  togglePreview = (e) => {
+    if (!this.state.previewMode) {
+      this.setState({previewMode: true});
+    }
+  }
+
+  toggleWorking = (e) => {
+    if (this.state.previewMode) {
+      this.setState({previewMode: false});
+    }
+  }
+
   render() {
 
     return(
@@ -51,19 +63,19 @@ class App extends Component {
           <div className="by">by Willie Zeng</div>
         </div>
         <div className='buttons'>
-          <button className='working'>Work Mode</button>
-          <button className='preview'>Preview Mode</button>
+          <button onClick={this.toggleWorking} className='working'>Work Mode</button>
+          <button onClick={this.togglePreview} className='preview'>Preview Mode</button>
         </div>
         <div className='login'>
           <button className='login'>Login</button>
         </div>
         {this.state.previewMode ? (
         <div>
-          <Personal></Personal>
+          
         </div>
       ) : (
         <div>
-          <Personal personalInfo={this.state.personalInfo}></Personal>
+          <Personal personalInfo={this.state}></Personal>
           <Education education={this.state.education}></Education>
           <WorkExperience workList={this.state.work}></WorkExperience>
         </div>
