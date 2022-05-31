@@ -2,34 +2,24 @@ import React from "react";
 
 const Personal = (props) => {
 
-    const togglePreview = (e) => {
-        props.togglePreview();
-    }
-
     const handleNameChange = (e) => {
         props.onNameChange(e.target.value);
     }
-
     const handleLastNameChange = (e) => {
         props.onLastNameChange(e.target.value);
     }
-
     const handleAddress1Change = (e) => {
         props.onAddress1Change(e.target.value);
     }
-
     const handleAddress2Change = (e) => {
         props.onAddress2Change(e.target.value);
     }
-
     const handlePhoneChange = (e) => {
         props.onPhoneChange(e.target.value);
     }
-
     const handleEmailChange = (e) => {
         props.onEmailChange(e.target.value);
     }
-
     const handleLinkedInChange = (e) => {
         props.onLinkChange(e.target.value);
     } 
@@ -59,7 +49,6 @@ const Personal = (props) => {
           <label htmlFor='linkedIn'>LinkedIn</label>
           <input type="text" onChange={handleLinkedInChange} value={props.link} id="linkedIn"></input>
 
-          <button type="submit">Save</button>
         </form>
       </div>
     )

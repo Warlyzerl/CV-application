@@ -1,32 +1,21 @@
 import React from "react";
 
 const Education = (props) => {
-    const {education} = props;
 
     const handleSchoolChange = (e) => {
-        props.setState ({
-            school: e.target.value
-        })
+        props.onSchoolChange(e.target.value);
     }
     const handleDegreeChange = (e) => {
-        props.setState ({
-            degree: e.target.value
-        })
+        props.onDegreeChange(e.target.value);
     }
     const handleMajorChange = (e) => {
-        props.setState ({
-            major: e.target.value
-        })
+        props.onMajorChange(e.target.value);
     }
     const handleSchoolFromChange = (e) => {
-        props.setState ({
-            schoolFrom: e.target.value
-        })
+        props.onSchoolFromChange(e.target.value);
     }
     const handleSchoolToChange = (e) => {
-        props.setState ({
-            schoolTo: e.target.value
-        })
+        props.onSchoolToChange(e.target.value);
     }
 
     return (

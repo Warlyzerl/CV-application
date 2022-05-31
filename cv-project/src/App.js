@@ -43,12 +43,13 @@ class App extends Component {
     }
   }
 
+
   togglePreview = (e) => {
     if (!this.state.previewMode) {
       this.setState({previewMode: true});
     }
   }
-
+  
   toggleWorking = (e) => {
     if (this.state.previewMode) {
       this.setState({previewMode: false});
@@ -118,20 +119,112 @@ class App extends Component {
     console.log(this.state.personalInfo);
   }
 
+  handleSchoolChange = (value) => {
+    this.setState({
+      education: {
+      ...this.state.education,
+      school : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleDegreeChange = (value) => {
+    this.setState({
+      education: {
+      ...this.state.education,
+      degree : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleMajorChange = (value) => {
+    this.setState({
+      education: {
+      ...this.state.education,
+      major : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleSchoolFromChange = (value) => {
+    this.setState({
+      education: {
+      ...this.state.education,
+      schoolFrom : value}
+    })
+    console.log(this.state.education);
+  }
+  
+  handleSchoolToChange = (value) => {
+    this.setState({
+      education: {
+      ...this.state.education,
+      schoolTo : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleJobTitleChange = (value) => {
+    this.setState({
+      work: {
+      ...this.state.work,
+      jobTitle : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleEmployerChange = (value) => {
+    this.setState({
+      work: {
+      ...this.state.work,
+      employer : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleWorkFromChange = (value) => {
+    this.setState({
+      work: {
+      ...this.state.work,
+      workFrom : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleWorkToChange = (value) => {
+    this.setState({
+      work: {
+      ...this.state.work,
+      workTo : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleDescriptionChange = (value) => {
+    this.setState({
+      work: {
+      ...this.state.work,
+      description : value}
+    })
+    console.log(this.state.work);
+  }
+
   render() {
 
     return(
       <div id='root'>
-        <div className='header'>
-          <div> CV Builder App </div>
-          <div className="by">by Willie Zeng</div>
-        </div>
-        <div className='buttons'>
-          <button onClick={this.toggleWorking} className='working'>Work Mode</button>
-          <button onClick={this.togglePreview} className='preview'>Preview Mode</button>
-        </div>
-        <div className='login'>
-          <button className='login'>Login</button>
+        <div className='notsticky'>
+          <div className='header'>
+            <div> CV Builder App </div>
+            <div className="by">by Willie Zeng</div>
+          </div>
+          <div className='buttons'>
+            <button onClick={this.toggleWorking} className='working'>Work Mode</button>
+            <button onClick={this.togglePreview} className='preview'>Preview Mode</button>
+          </div>
+          <div className='login'>
+            <button className='login'>Login</button>
+          </div>
         </div>
         {this.state.previewMode ? (
         <div>
@@ -149,8 +242,18 @@ class App extends Component {
                     onLinkChange={this.handleLinkChange}
                     togglePreview={this.togglePreview}
                     ></Personal>
-          <Education education={this.state.education}></Education>
-          <WorkExperience workList={this.state.work}></WorkExperience>
+          <Education education={this.state.education}
+                     onSchoolChange={this.handleSchoolChange}
+                     onDegreeChange={this.handleDegreeChange}
+                     onMajorChange={this.handleMajorChange}
+                     onSchoolFromChange={this.handleSchoolFromChange}
+                     onSchoolToChange={this.handleSchoolToChange}></Education>
+          <WorkExperience workList={this.state.work}
+                          onJobTitleChange={this.handleJobTitleChange}
+                          onEmployerChange={this.handleEmployerChange}
+                          onWorkFromChange={this.handleWorkFromChange}
+                          onWorkToChange={this.handleWorkToChange}
+                          onDescriptionChange={this.handleDescriptionChange}></WorkExperience>
           
         </div>
       )}
@@ -159,7 +262,6 @@ class App extends Component {
     )
   }
 }
-
 
 
 export default App;

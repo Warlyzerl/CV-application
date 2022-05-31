@@ -1,36 +1,21 @@
 import React from "react";
 
 const WorkExperience = (props) => {
-    
 
     const handleTitleChange = (e) => {
-        props.setState ({
-            jobTitle: e.target.value
-        })
+        props.onJobTitleChange(e.target.value);
     }
-
     const handleEmployerChange = (e) => {
-        props.setState ({
-            employer: e.target.value
-        })
+        props.onEmployerChange(e.target.value);
     }
-
     const handleWorkFromChange = (e) => {
-        props.setState ({
-            workFrom: e.target.value
-        })
+        props.onWorkFromChange(e.target.value);
     }
-
     const handleWorkToChange = (e) => {
-        props.setState ({
-            workTo: e.target.value
-        })
+        props.onWorkToChange(e.target.value);
     }
-
     const handleDescriptionChange = (e) => {
-        props.setState ({
-            description: e.target.value
-        })
+        props.onDescriptionChange(e.target.value);
     }
 
     return (
