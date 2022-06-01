@@ -23,20 +23,22 @@ const WorkExperience = (props) => {
         <div className='personalInfo by'> Work Experience </div>
         <form className='formGrid' >
           <label htmlFor='jobTitle' className="label">Job Title</label>
-          <input onChange={handleTitleChange} type="text" value={props.jobTitle} id="jobTitle"></input>
+          <input onChange={handleTitleChange} type="text" value={props.work.jobTitle} id="jobTitle"></input>
 
           <label htmlFor='employer' className="label">Employer</label>
-          <input onChange={handleEmployerChange} type="text" value={props.employer} id="employer"></input>
+          <input onChange={handleEmployerChange} type="text" value={props.work.employer} id="employer"></input>
 
           <label htmlFor='workFrom'>From</label>
-          <input onChange={handleWorkFromChange} type="text" value={props.workFrom} id="workFrom"></input>
+          <input onChange={handleWorkFromChange} type="text" value={props.work.workFrom} id="workFrom"></input>
 
           <label htmlFor='workTo'>To</label>
-          <input onChange={handleWorkToChange} type="text" value = {props.workTo} id="workTo"></input>
+          <input onChange={handleWorkToChange} type="text" value={props.work.workTo} id="workTo"></input>
 
-          <label htmlFor='description'>Description of Duties</label>
-          <input onChange={handleDescriptionChange} type="text" value = {props.description} id="description"></input>
-          <button type="submit">Save</button>
+          
+          <label htmlFor='descriptionBox'>Description of Duties</label>
+          <input className="descriptionsquare" onChange={handleDescriptionChange} type="text" value={props.work.description} id="description"></input>
+          
+          <button type="submit">Add</button>
         </form>
       </div>
     )

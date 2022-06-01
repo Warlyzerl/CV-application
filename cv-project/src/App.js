@@ -29,7 +29,8 @@ class App extends Component {
         degree: "",
         major: "",
         schoolFrom: "",
-        schoolTo: ""
+        schoolTo: "",
+        gpa: ""
       },
 
       work: {
@@ -68,6 +69,7 @@ class App extends Component {
         ...this.state.personalInfo,
         firstName : value}
     })
+
     console.log(this.state.personalInfo);
   }
 
@@ -139,6 +141,15 @@ class App extends Component {
       education: {
       ...this.state.education,
       degree : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleGPAChange = (value) => {
+    this.setState({
+      education: {
+      ...this.state.education,
+      gpa : value}
     })
     console.log(this.state.education);
   }
@@ -234,9 +245,14 @@ class App extends Component {
         </div>
         {this.state.previewMode ? (
         <div>
-          <button onClick={this.generatePdf}>Generate PDF</button>
+          <div className='genPDF'>
+            <button onClick={this.generatePdf}>Generate PDF</button>
+          </div>
           <div id="pdf">
-              <Preview personalInfo={this.state.personalInfo}></Preview>
+              <Preview personalInfo={this.state.personalInfo}
+                       education={this.state.education}
+                       work={this.state.work} 
+                       ></Preview>
           </div>
         </div>
       ) : (
@@ -255,9 +271,10 @@ class App extends Component {
                      onSchoolChange={this.handleSchoolChange}
                      onDegreeChange={this.handleDegreeChange}
                      onMajorChange={this.handleMajorChange}
+                     onGPAChange={this.handleGPAChange}
                      onSchoolFromChange={this.handleSchoolFromChange}
                      onSchoolToChange={this.handleSchoolToChange}></Education>
-          <WorkExperience workList={this.state.work}
+          <WorkExperience work={this.state.work}
                           onJobTitleChange={this.handleJobTitleChange}
                           onEmployerChange={this.handleEmployerChange}
                           onWorkFromChange={this.handleWorkFromChange}
