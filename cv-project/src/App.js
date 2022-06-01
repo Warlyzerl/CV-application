@@ -4,6 +4,8 @@ import { render } from '@testing-library/react';
 import Personal from './components/Personal.js';
 import Education from './components/Education';
 import WorkExperience from './components/WorkExperience';
+import Preview from './components/Preview';
+import html2pdf from 'html2pdf.js';
 
 
 class App extends Component {
@@ -43,13 +45,17 @@ class App extends Component {
     }
   }
 
+  generatePdf = () => {
+    var element = document.getElementById('pdf');
+    html2pdf(element);
+}
 
   togglePreview = (e) => {
     if (!this.state.previewMode) {
       this.setState({previewMode: true});
     }
   }
-  
+
   toggleWorking = (e) => {
     if (this.state.previewMode) {
       this.setState({previewMode: false});
@@ -228,7 +234,10 @@ class App extends Component {
         </div>
         {this.state.previewMode ? (
         <div>
-          
+          <button onClick={this.generatePdf}>Generate PDF</button>
+          <div id="pdf">
+              <Preview personalInfo={this.state.personalInfo}></Preview>
+          </div>
         </div>
       ) : (
         <div>

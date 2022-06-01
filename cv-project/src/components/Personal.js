@@ -29,7 +29,7 @@ const Personal = (props) => {
         <div className='personalInfo by'> Personal Information </div>
         <form className='formGrid' >
           <label htmlFor='name' className="label">Name</label>
-          <input type="text" onChange={handleNameChange} value={props.name} id="name"></input>
+          <input type="text" onChange={handleNameChange} value={props.firstName} id="name"></input>
 
           <label htmlFor='lastName'>Last Name</label>
           <input type="text" onChange={handleLastNameChange} value={props.lastName} id="lastName"></input>

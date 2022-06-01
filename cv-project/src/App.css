@@ -67,3 +67,8 @@ label {
 input {
   overflow: scroll;
 }
+
+#pdf {
+  background-color: white;
+  color: black;
+}
