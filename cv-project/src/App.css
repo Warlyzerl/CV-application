@@ -114,18 +114,21 @@ input {
 
 .descriptionBox {
   grid-column: 1 / 2;
-  
-  
 }
 
 .descriptionsquare {
-  overflow: scroll;
-  margin-left: 73px;
+  
+  margin-left: 30px;
   grid-column: 2 / 5;
   
 }
 
 .genPDF {
+  display: flex;
+  justify-content: center;
+}
+
+.add {
   display: flex;
   justify-content: center;
 }

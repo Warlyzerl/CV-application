@@ -20,7 +20,7 @@ const WorkExperience = (props) => {
 
     return (
         <div id='main'>
-        <div className='personalInfo by'> Work Experience </div>
+        <div className='personalInfo by'> Work Experience / Projects </div>
         <form className='formGrid' >
           <label htmlFor='jobTitle' className="label">Job Title</label>
           <input onChange={handleTitleChange} type="text" value={props.work.jobTitle} id="jobTitle"></input>
@@ -33,12 +33,10 @@ const WorkExperience = (props) => {
 
           <label htmlFor='workTo'>To</label>
           <input onChange={handleWorkToChange} type="text" value={props.work.workTo} id="workTo"></input>
-
           
           <label htmlFor='descriptionBox'>Description of Duties</label>
-          <input className="descriptionsquare" onChange={handleDescriptionChange} type="text" value={props.work.description} id="description"></input>
+          <textarea cols={40} rows={5} className="descriptionsquare" onChange={handleDescriptionChange} type="text" value={props.work.description} id="description"></textarea>
           
-          <button type="submit">Add</button>
         </form>
       </div>
     )

@@ -100,6 +100,15 @@ class App extends Component {
     }
   }
 
+  handleWorkAddChange = () => {
+    if (!this.state.workAdd1) {
+      this.setState({workAdd1: true})
+    }
+    else if (!this.state.workAdd2) {
+      this.setState({workAdd2: true})
+    }
+  }
+
   handleNameChange = (value) => {
     this.setState({
       personalInfo: {
@@ -435,6 +444,10 @@ class App extends Component {
                        work={this.state.work} 
                        eduAdd1={this.state.eduAdd1}
                        education1={this.state.education1}
+                       workAdd1={this.state.workAdd1}
+                       work1={this.state.work1}
+                       workAdd2={this.state.workAdd2}
+                       work2={this.state.work2}
                        ></Preview>
           </div>
         </div>
@@ -468,16 +481,44 @@ class App extends Component {
           onSchoolFromChange={this.handleSchoolFromChange1}
           onSchoolToChange={this.handleSchoolToChange1}>
           </Education>) 
-          : (<div></div>)}
+          : (<div>
+            <div className='add'>
           <button onClick={this.handleEduAddChange}>Add</button>
-          <WorkExperience work={this.state.work}
-                          onJobTitleChange={this.handleJobTitleChange}
-                          onEmployerChange={this.handleEmployerChange}
-                          onWorkFromChange={this.handleWorkFromChange}
-                          onWorkToChange={this.handleWorkToChange}
-                          onDescriptionChange={this.handleDescriptionChange}>
-                          </WorkExperience>
-          
+          </div>
+          </div>)}
+        
+          <WorkExperience 
+          work={this.state.work}
+          onJobTitleChange={this.handleJobTitleChange}
+          onEmployerChange={this.handleEmployerChange}
+          onWorkFromChange={this.handleWorkFromChange}
+          onWorkToChange={this.handleWorkToChange}
+          onDescriptionChange={this.handleDescriptionChange}>
+          </WorkExperience>
+          {this.state.workAdd1 ? (
+            <WorkExperience 
+            work={this.state.work1}
+            onJobTitleChange={this.handleJobTitleChange1}
+            onEmployerChange={this.handleEmployerChange1}
+            onWorkFromChange={this.handleWorkFromChange1}
+            onWorkToChange={this.handleWorkToChange1}
+            onDescriptionChange={this.handleDescriptionChange1}>
+            </WorkExperience>
+          ) : (<div></div>)
+          }
+          {this.state.workAdd2 ? (
+            <WorkExperience 
+            work={this.state.work2}
+            onJobTitleChange={this.handleJobTitleChange2}
+            onEmployerChange={this.handleEmployerChange2}
+            onWorkFromChange={this.handleWorkFromChange2}
+            onWorkToChange={this.handleWorkToChange2}
+            onDescriptionChange={this.handleDescriptionChange2}>
+            </WorkExperience>
+          ) : (<div><div className='add'>
+          <button onClick={this.handleWorkAddChange}>Add</button>
+          </div></div>)
+          }
         </div>
       )}
         
