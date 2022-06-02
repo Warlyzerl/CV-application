@@ -1,7 +1,7 @@
 import React from "react";
 
 const Education = (props) => {
-
+    
     const handleSchoolChange = (e) => {
         props.onSchoolChange(e.target.value);
     }
@@ -45,8 +45,8 @@ const Education = (props) => {
           <label htmlFor='to'>To "Year"</label>
           <input type="text" onChange={handleSchoolToChange} value={props.education.schoolTo} id="to"></input>
 
-          <button type="submit">Add</button>
         </form>
+        
       </div>
      
     )

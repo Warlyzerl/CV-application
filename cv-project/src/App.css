@@ -96,6 +96,7 @@ input {
 #resume-body {
   margin-left: 96px;
   margin-top: 20px;
+  margin-right: 96px;
 }
 
 .section-head {
@@ -108,10 +109,13 @@ input {
 
 .description {
   margin-top: 5px;
+  word-wrap: break-word;
 }
 
 .descriptionBox {
   grid-column: 1 / 2;
+  
+  
 }
 
 .descriptionsquare {

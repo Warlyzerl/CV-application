@@ -33,6 +33,15 @@ class App extends Component {
         gpa: ""
       },
 
+      education1: {
+        school: "",
+        degree: "",
+        major: "",
+        schoolFrom: "",
+        schoolTo: "",
+        gpa: ""
+      },
+
       work: {
         jobTitle: "",
         employer: "",
@@ -41,7 +50,29 @@ class App extends Component {
         description: ""
       },
 
-      previewMode: false
+      work1: {
+        jobTitle: "",
+        employer: "",
+        workFrom: "",
+        workTo: "",
+        description: ""
+      },
+
+      work2: {
+        jobTitle: "",
+        employer: "",
+        workFrom: "",
+        workTo: "",
+        description: ""
+      },
+
+      previewMode: false,
+
+      eduAdd1: false,
+
+      workAdd1: false,
+
+      workAdd2: false
       
     }
   }
@@ -60,6 +91,12 @@ class App extends Component {
   toggleWorking = (e) => {
     if (this.state.previewMode) {
       this.setState({previewMode: false});
+    }
+  }
+
+  handleEduAddChange = () => {
+    if (!this.state.eduAdd1) {
+      this.setState({eduAdd1: true})
     }
   }
 
@@ -181,6 +218,60 @@ class App extends Component {
     console.log(this.state.education);
   }
 
+  handleSchoolChange1 = (value) => {
+    this.setState({
+      education1: {
+      ...this.state.education1,
+      school : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleDegreeChange1 = (value) => {
+    this.setState({
+      education1: {
+      ...this.state.education1,
+      degree : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleGPAChange1 = (value) => {
+    this.setState({
+      education1: {
+      ...this.state.education1,
+      gpa : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleMajorChange1 = (value) => {
+    this.setState({
+      education1: {
+      ...this.state.education1,
+      major : value}
+    })
+    console.log(this.state.education);
+  }
+
+  handleSchoolFromChange1 = (value) => {
+    this.setState({
+      education1: {
+      ...this.state.education1,
+      schoolFrom : value}
+    })
+    console.log(this.state.education);
+  }
+  
+  handleSchoolToChange1 = (value) => {
+    this.setState({
+      education1: {
+      ...this.state.education1,
+      schoolTo : value}
+    })
+    console.log(this.state.education);
+  }
+
   handleJobTitleChange = (value) => {
     this.setState({
       work: {
@@ -226,6 +317,96 @@ class App extends Component {
     console.log(this.state.work);
   }
 
+  handleJobTitleChange1 = (value) => {
+    this.setState({
+      work1: {
+      ...this.state.work1,
+      jobTitle : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleEmployerChange1 = (value) => {
+    this.setState({
+      work1: {
+      ...this.state.work1,
+      employer : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleWorkFromChange1 = (value) => {
+    this.setState({
+      work1: {
+      ...this.state.work1,
+      workFrom : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleWorkToChange1 = (value) => {
+    this.setState({
+      work1: {
+      ...this.state.work1,
+      workTo : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleDescriptionChange1 = (value) => {
+    this.setState({
+      work1: {
+      ...this.state.work1,
+      description : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleJobTitleChange2 = (value) => {
+    this.setState({
+      work2: {
+      ...this.state.work2,
+      jobTitle : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleEmployerChange2 = (value) => {
+    this.setState({
+      work2: {
+      ...this.state.work2,
+      employer : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleWorkFromChange2 = (value) => {
+    this.setState({
+      work2: {
+      ...this.state.work2,
+      workFrom : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleWorkToChange2 = (value) => {
+    this.setState({
+      work2: {
+      ...this.state.work2,
+      workTo : value}
+    })
+    console.log(this.state.work);
+  }
+
+  handleDescriptionChange2 = (value) => {
+    this.setState({
+      work2: {
+      ...this.state.work2,
+      description : value}
+    })
+    console.log(this.state.work);
+  }
+
   render() {
 
     return(
@@ -252,6 +433,8 @@ class App extends Component {
               <Preview personalInfo={this.state.personalInfo}
                        education={this.state.education}
                        work={this.state.work} 
+                       eduAdd1={this.state.eduAdd1}
+                       education1={this.state.education1}
                        ></Preview>
           </div>
         </div>
@@ -273,13 +456,27 @@ class App extends Component {
                      onMajorChange={this.handleMajorChange}
                      onGPAChange={this.handleGPAChange}
                      onSchoolFromChange={this.handleSchoolFromChange}
-                     onSchoolToChange={this.handleSchoolToChange}></Education>
+                     onSchoolToChange={this.handleSchoolToChange}>
+                     </Education>
+          {this.state.eduAdd1 ? (
+          <Education 
+          education={this.state.education1}
+          onSchoolChange={this.handleSchoolChange1}
+          onDegreeChange={this.handleDegreeChange1}
+          onMajorChange={this.handleMajorChange1}
+          onGPAChange={this.handleGPAChange1}
+          onSchoolFromChange={this.handleSchoolFromChange1}
+          onSchoolToChange={this.handleSchoolToChange1}>
+          </Education>) 
+          : (<div></div>)}
+          <button onClick={this.handleEduAddChange}>Add</button>
           <WorkExperience work={this.state.work}
                           onJobTitleChange={this.handleJobTitleChange}
                           onEmployerChange={this.handleEmployerChange}
                           onWorkFromChange={this.handleWorkFromChange}
                           onWorkToChange={this.handleWorkToChange}
-                          onDescriptionChange={this.handleDescriptionChange}></WorkExperience>
+                          onDescriptionChange={this.handleDescriptionChange}>
+                          </WorkExperience>
           
         </div>
       )}
