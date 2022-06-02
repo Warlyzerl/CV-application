@@ -1,4 +1,4 @@
-CV Builder Application
+**CV Builder Application**
 
 I built this application to begin learning the ins-and-outs of React. 
 
